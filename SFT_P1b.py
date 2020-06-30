@@ -81,20 +81,20 @@ for provider in res:
 import csv
 with open('offers.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-for i in res:
-    # Each i is a new BeautifulSoup object.
-    # It is used to extract information.
-    name = i.find('a', class_='flight-name')
-    departure = i.find('div', class_='left-wing')
-    arrival = i.find('div', class_='right-wing')
-    price= i.find('div',class_='price')
-    offer= i.find('span',class_='dynot')
-    
-    if None in (name, departure, arrival, price):
-        continue
-    writer.writerow([name.text, departure.text, arrival.text, price.text, offer.text])
-    print(name.text)
-    print(departure.text)
-    print(arrival.text)
-    print(price.text)
-    print(offer.text)
+    for i in res:
+        # Each i is a new BeautifulSoup object.
+        # It is used to extract information.
+        name = i.find('a', class_='flight-name')
+        departure = i.find('div', class_='left-wing')
+        arrival = i.find('div', class_='right-wing')
+        price= i.find('div',class_='price')
+        offer= i.find('span',class_='dynot')
+
+        if None in (name, departure, arrival, price):
+            continue
+        writer.writerow([name.text, departure.text, arrival.text, price.text, offer.text])
+        print(name.text)
+        print(departure.text)
+        print(arrival.text)
+        print(price.text)
+        print(offer.text)
